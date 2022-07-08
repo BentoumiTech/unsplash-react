@@ -127,6 +127,7 @@ var UnsplashWrapper = function () {
     var _this2 = this;
 
     var accessKey = _ref.accessKey,
+        apiUrl = _ref.apiUrl,
         _ref$__debug_chaosMon = _ref.__debug_chaosMonkey,
         __debug_chaosMonkey = _ref$__debug_chaosMon === undefined ? false : _ref$__debug_chaosMon;
 
@@ -173,7 +174,11 @@ var UnsplashWrapper = function () {
     };
 
     this.__debug_chaosMonkey = new ChaosMonkey(__debug_chaosMonkey);
-    this.unsplash = unsplashJs.createApi({ accessKey: accessKey });
+    if (apiUrl) {
+      this.unsplash = unsplashJs.createApi({ apiUrl: apiUrl });
+    } else {
+      this.unsplash = unsplashJs.createApi({ accessKey: accessKey });
+    }
   }
 
   createClass(UnsplashWrapper, [{

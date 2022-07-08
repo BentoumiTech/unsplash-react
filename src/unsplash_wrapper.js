@@ -22,9 +22,13 @@ class ChaosMonkey {
 }
 
 export default class UnsplashWrapper {
-  constructor({ accessKey, __debug_chaosMonkey = false }) {
+  constructor({ accessKey, apiUrl, __debug_chaosMonkey = false }) {
     this.__debug_chaosMonkey = new ChaosMonkey(__debug_chaosMonkey)
-    this.unsplash = createApi({ accessKey })
+    if (apiUrl) {
+      this.unsplash = createApi({ apiUrl })
+    } else {
+      this.unsplash = createApi({ accessKey })
+    }
   }
 
   listPhotos = (page, perPage, orderBy = "popular") => {
