@@ -2991,6 +2991,7 @@
 	    value: function componentDidMount() {
 	      var unsplash = new UnsplashWrapper({
 	        accessKey: this.props.accessKey,
+	        apiUrl: this.props.apiUrl,
 	        __debug_chaosMonkey: this.props.__debug_chaosMonkey
 	      });
 
@@ -3226,7 +3227,8 @@
 	}(react.Component);
 
 	UnsplashPicker.propTypes = {
-	  accessKey: string$9.isRequired,
+	  accessKey: string$9,
+	  apiKey: string$9,
 	  applicationName: string$9.isRequired,
 	  columns: number$3,
 	  defaultSearch: string$9,

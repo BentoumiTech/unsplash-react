@@ -36,7 +36,8 @@ const borderRadius = 3
 
 export default class UnsplashPicker extends React.Component {
   static propTypes = {
-    accessKey: string.isRequired,
+    accessKey: string,
+    apiKey: string,
     applicationName: string.isRequired,
     columns: number,
     defaultSearch: string,
@@ -85,6 +86,7 @@ export default class UnsplashPicker extends React.Component {
   componentDidMount() {
     const unsplash = new UnsplashWrapper({
       accessKey: this.props.accessKey,
+      apiUrl: this.props.apiUrl,
       __debug_chaosMonkey: this.props.__debug_chaosMonkey,
     })
 
